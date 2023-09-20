@@ -12,10 +12,12 @@ export const Profile = (props) => {
         <p className={style.email}>Email: <span>{user.email}</span></p>
         <p className={style.id}>ID: {user.id}</p>
         <p>История пользователя: </p>
-        <p style={{border: "solid 2px red", padding: "10px", borderRadius: "5px", backgroundColor: "lightgray", }}>
+        <p className={style.about}>
         {user.about}
         </p>
       </div>
     </div>
   );
 };
+
+//<p style={{border: "solid 2px red", padding: "10px", borderRadius: "5px", backgroundColor: "lightgray", }}></p> 

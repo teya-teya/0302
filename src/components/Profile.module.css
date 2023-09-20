@@ -1,15 +1,22 @@
 .name {
   font-weight: 700;
-  color: rgb(173, 81, 16);
+  color: rgb(88, 0, 146);
 }
 .email {
   font-size: 1.2rem;
   font-style: italic;
 }
 .email span {
-  color: crimson;
+  color: rgb(187, 66, 90);
 }
 .id {
   font-size: 1.4rem;
-  color: blue;
+  color: rgb(187, 66, 90);
+}
+.about {
+  background-color: rgb(177, 138, 172);
+  border: solid 1px rgb(90, 48, 84);
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: inset 0px 0px 10px rgb(90, 48, 84);
 }
