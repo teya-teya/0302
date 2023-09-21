@@ -1,7 +1,10 @@
 import style from "./Profile.module.css";
 
 export const Profile = (props) => {
-  let user = props.function();
+  let userId = window.location.pathname.split("/")[2];
+  let user = props.function(userId);
+  console.log(userId);
+  
   return (
     <div className="row">
       <div className="col-3">
@@ -20,4 +23,5 @@ export const Profile = (props) => {
   );
 };
 
-//<p style={{border: "solid 2px red", padding: "10px", borderRadius: "5px", backgroundColor: "lightgray", }}></p> 
+//<p style={{border: "solid 2px red", padding: 
+//"10px", borderRadius: "5px", backgroundColor: "lightgray", }}></p> 
