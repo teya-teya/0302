@@ -11,7 +11,7 @@ const user = {
 const users = {
   0: {
     id: 5,
-    name: "Феодорова",
+    name: "Феодора",
     lastname: "Лидова",
     email: "feoli@ok.ru",
     avatar:
