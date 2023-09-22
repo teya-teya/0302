@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import pageImg from "../asset/img/sea.jpg";
+import React from "react";
 
 const TableRow = (props) => {
   return (
@@ -15,43 +16,56 @@ const TableRow = (props) => {
   );
 };
 
-export const Friends = (props) => {
-  let users = props.function();
-  let userCount = Object.keys(users).length;
-  let userRow = [];
-
-  for (let i = 0; i < userCount; i++) {
-    userRow.push(
-      <TableRow
-        index={i}
-        key={i}
-        id={users[i].id}
-        name={users[i].name}
-        lastname={users[i].lastname}
-        email={users[i].email}
-      />
-    );
+export class Friends extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { userRow: [] };
   }
-  return (
-    <div className="container-fluid">
-      <h1 className="text-center">Друзья</h1>
-      <div className="row">
-        <div className="col-12">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Имя и Фамилия</th>
-                <th scope="col">Email</th>
-              </tr>
-            </thead>
-            <tbody>{userRow}</tbody>
-          </table>
-        </div>
-        <div className="col-12 mt-5">
-          <img src={pageImg} alt="" width="100%" />
+
+  componentDidMount() {
+    this.props.function().then((users) => {
+      console.log(users);
+      let userCount = users.length;
+      let userRow = [];
+
+      for (let i = 0; i < userCount; i++) {
+        userRow.push(
+          <TableRow
+            index={i}
+            key={i}
+            id={users[i].id}
+            name={users[i].name}
+            lastname={users[i].lastname}
+            email={users[i].email}
+          />
+        );
+      }
+      this.setState({userRow: userRow})
+    });
+  }
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <h1 className="text-center">Друзья</h1>
+        <div className="row">
+          <div className="col-12">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Имя и Фамилия</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>{this.state.userRow}</tbody>
+            </table>
+          </div>
+          <div className="col-12 mt-5">
+            <img src={pageImg} alt="" width="100%" />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
