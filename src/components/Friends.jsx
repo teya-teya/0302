@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import pageImg from "../asset/img/sea.jpg";
+import pageImg from "../assets/img/sea.jpg";
 import React from "react";
 
 const TableRow = (props) => {
@@ -40,14 +40,14 @@ export class Friends extends React.Component {
           />
         );
       }
-      this.setState({userRow: userRow})
+      this.setState({ userRow: userRow });
     });
   }
 
   render() {
     return (
       <div className="container-fluid">
-        <h1 className="text-center">Друзья</h1>
+        <h1 className="p-2 text-center text-xl font-bold">Друзья</h1>
         <div className="row">
           <div className="col-12">
             <table className="table table-bordered">
